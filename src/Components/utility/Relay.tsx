@@ -45,9 +45,9 @@ const Relay = ({ todo, textButton }: RelayProps) => {
     if (client) {
       client.publish('aven/relay', message, (error) => {
         if (error) {
-          setFeedback('Relay Gak Nyala.')
+          setFeedback('Relay gak nyala.')
         } else {
-          setFeedback('Relay Nyala Cuy')
+          setFeedback('Relay berubah cuy')
         }
       })
     } else {
