@@ -9,12 +9,7 @@ interface SensorProps {
   sensor4?: string | number
 }
 
-const Sensor: React.FC<SensorProps> = ({
-  sensor1,
-  sensor2,
-  sensor3,
-  sensor4,
-}) => {
+const Sensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   const calculateBrightness = (ldrRawValue: number) => {
     const gama = 0.7
     const rl10 = 50
