@@ -9,16 +9,16 @@ interface SensorProps {
   sensor4?: string | number
 }
 const calculateBrightness = (ldrRawValue: number) => {
-  const gama = 0.7
+  const gamma = 0.7
   const rl10 = 50
 
-  ldrRawValue = map(ldrRawValue, 4095, 0, 1024, 0)
+  const ldrMappedValue = map(ldrRawValue, 4095, 0, 100000, 0)
 
-  const voltage = (ldrRawValue / 1024.0) * 5
+  const voltage = (ldrMappedValue / 100000.0) * 5
   const resistance = (2000 * voltage) / (1 - voltage / 5)
   const brightness = Math.pow(
-    (rl10 * 1e3 * Math.pow(10, gama)) / resistance,
-    1 / gama,
+    (rl10 * 1e3 * Math.pow(10, gamma)) / resistance,
+    1 / gamma,
   )
 
   return brightness
@@ -30,7 +30,7 @@ const map = (
   in_max: number,
   out_min: number,
   out_max: number,
-): number => {
+) => {
   return ((x - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
 }
 
