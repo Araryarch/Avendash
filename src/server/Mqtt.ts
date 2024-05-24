@@ -4,7 +4,7 @@ import mqtt from 'mqtt'
 interface Message {
   temperature?: number | undefined
   humidity?: number | undefined
-  brightness?: number | undefined
+  ldrSensor?: number | undefined
   soil?: number | undefined
 }
 

@@ -4,7 +4,7 @@ import Hero from './Pages/Hero'
 import MQTTComponent from './server/Mqtt'
 
 const App = () => {
-  const { temperature, humidity, brightness, soil } = MQTTComponent()
+  const { temperature, humidity, ldrSensor, soil } = MQTTComponent()
 
   const applyCeil = (value: number | undefined) =>
     value !== undefined ? Math.ceil(value) : undefined
@@ -19,7 +19,7 @@ const App = () => {
             <Sensors
               sensor1={applyCeil(temperature)}
               sensor2={applyCeil(humidity)}
-              sensor3={applyCeil(brightness)}
+              sensor3={applyCeil(ldrSensor)}
               sensor4={applyCeil(soil)}
             />
           }
