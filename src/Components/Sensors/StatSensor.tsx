@@ -20,7 +20,7 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    clientRef.current = mqtt.connect('wss://broker.emqx.io:8083/mqtt')
+    clientRef.current = mqtt.connect('wss://broker.emqx.io:8084/mqtt')
     clientRef.current.on('connect', () => {
       console.log('Connected to MQTT broker')
     })
