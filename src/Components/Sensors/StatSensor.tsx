@@ -135,8 +135,8 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
         className="box-border flex-1 w-full px-10 py-8 shadow-sm sensor-chat bg-based-100 rounded-box shadow-primary"
       >
         <div className="flex justify-center w-full gap-5 py-3 controller-wrapper md:flex-col">
-          <Relay todo={'1'} textButton="Turn On Relay" />
-          <Relay todo={'0'} textButton="Turn Off Relay" />
+          <Relay todo={'0'} textButton="Turn On Relay" />
+          <Relay todo={'1'} textButton="Turn Off Relay" />
         </div>
         <h1 className="py-3 text-xl font-bold text-center">
           IoT Control Panel
