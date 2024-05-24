@@ -36,7 +36,6 @@ const map = (
 
 const Sensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   const [brightness, setBrightness] = useState<number | undefined>(undefined)
-  console.log(sensor3)
 
   useEffect(() => {
     if (sensor3 !== undefined) {
@@ -51,7 +50,7 @@ const Sensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   }, [sensor3])
 
   return (
-    <div className="sensors grid min-h-screen w-full grid-cols-1 items-center justify-center gap-5 px-12 xl:-mt-16 xl:grid-cols-2 xl:gap-5">
+    <div className="grid items-center justify-center w-full min-h-screen grid-cols-1 gap-5 px-12 sensors xl:-mt-16 xl:grid-cols-2 xl:gap-5">
       <StatSensor
         sensor1={sensor1}
         sensor2={sensor2}
