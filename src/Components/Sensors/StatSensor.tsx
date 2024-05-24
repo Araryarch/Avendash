@@ -20,7 +20,7 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    clientRef.current = mqtt.connect('ws://broker.emqx.io:8083/mqtt')
+    clientRef.current = mqtt.connect('wss://broker.emqx.io:8083/mqtt')
     clientRef.current.on('connect', () => {
       console.log('Connected to MQTT broker')
     })
@@ -106,9 +106,9 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   }
 
   return (
-    <div className="sensor-wrapper box-border flex h-full flex-col items-start justify-start gap-5 rounded-box pt-10 text-xl text-secondary-content shadow-primary md:pt-4 xl:h-3/4 xl:pt-0">
+    <div className="box-border flex flex-col items-start justify-start h-full gap-5 pt-10 text-xl sensor-wrapper rounded-box text-secondary-content shadow-primary md:pt-4 xl:h-3/4 xl:pt-0">
       <div
-        className="sensor-text flex h-full w-full flex-col gap-5 md:flex-row"
+        className="flex flex-col w-full h-full gap-5 sensor-text md:flex-row"
         ref={indicatorTopRef}
       >
         <Stat addClass={`${themeHtL(sensor1)}`}>
@@ -119,7 +119,7 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
         </Stat>
       </div>
       <div
-        className="sensor-text flex h-full w-full flex-col gap-5 md:flex-row"
+        className="flex flex-col w-full h-full gap-5 sensor-text md:flex-row"
         ref={indicatorBottomRef}
       >
         <Stat addClass={`${themeLtH(sensor3)}`}>
@@ -132,32 +132,32 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
 
       <div
         ref={sensorRef}
-        className="sensor-chat bg-based-100 box-border w-full flex-1 rounded-box px-10 py-8 shadow-sm shadow-primary"
+        className="box-border flex-1 w-full px-10 py-8 shadow-sm sensor-chat bg-based-100 rounded-box shadow-primary"
       >
-        <div className="controller-wrapper flex w-full justify-center gap-5 py-3 md:flex-col">
+        <div className="flex justify-center w-full gap-5 py-3 controller-wrapper md:flex-col">
           <Relay todo={'1'} textButton="Turn On Relay" />
           <Relay todo={'0'} textButton="Turn Off Relay" />
         </div>
-        <h1 className="py-3 text-center text-xl font-bold">
+        <h1 className="py-3 text-xl font-bold text-center">
           IoT Control Panel
         </h1>
         <input
           type="text"
           placeholder="Type topic here"
-          className="input input-bordered input-primary w-full font-semibold text-primary"
+          className="w-full font-semibold input input-bordered input-primary text-primary"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
         />
         <input
           type="text"
           placeholder="Type message here"
-          className="input input-bordered input-primary my-5 w-full font-semibold text-primary"
+          className="w-full my-5 font-semibold input input-bordered input-primary text-primary"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <button
           type="submit"
-          className="btn btn-primary w-full"
+          className="w-full btn btn-primary"
           onClick={sendData}
         >
           Send Message
