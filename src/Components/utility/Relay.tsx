@@ -11,7 +11,7 @@ const Relay = ({ todo, textButton }: RelayProps) => {
   const [client, setClient] = useState<mqtt.MqttClient | null>(null)
 
   useEffect(() => {
-    const mqttClient = mqtt.connect('ws://broker.emqx.io:8083/mqtt')
+    const mqttClient = mqtt.connect('wss://broker.emqx.io:8084/mqtt')
     setClient(mqttClient)
 
     mqttClient.on('connect', () => {
@@ -57,7 +57,7 @@ const Relay = ({ todo, textButton }: RelayProps) => {
 
   return (
     <div>
-      <button onClick={() => sendData(todo)} className="btn btn-primary w-full">
+      <button onClick={() => sendData(todo)} className="w-full btn btn-primary">
         {textButton}
       </button>
       {feedback && (
