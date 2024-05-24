@@ -22,6 +22,11 @@ const Relay = ({ todo, textButton }: RelayProps) => {
       setFeedback(`MQTT connection error: ${error.message}`)
     })
 
+    mqttClient.on('close', () => {
+      console.log('MQTT connection closed')
+      setFeedback('MQTT connection closed')
+    })
+
     return () => {
       mqttClient.end()
     }
