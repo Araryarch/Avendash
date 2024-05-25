@@ -5,9 +5,11 @@ Tentu! Berikut adalah README yang lebih singkat untuk proyek dashboard MQTT deng
 **Project Title: MQTT Dashboard with ReactJS**
 
 ## Overview
+
 A web-based MQTT dashboard built with ReactJS for real-time monitoring of MQTT topics and messages.
 
 ## Features
+
 - Real-time Data Monitoring
 - Topic Subscription
 - Dynamic Visualization
@@ -15,17 +17,19 @@ A web-based MQTT dashboard built with ReactJS for real-time monitoring of MQTT t
 - User-friendly Interface
 
 ## Prerequisites
+
 - Node.js
 - npm
 
 ## Installation
+
 1. Clone the repository:
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/Araryarch/Avendash
    ```
 2. Navigate to the project directory:
    ```sh
-   cd mqtt-dashboard-reactjs
+   cd Avendash
    ```
 3. Install dependencies:
    ```sh
@@ -33,17 +37,19 @@ A web-based MQTT dashboard built with ReactJS for real-time monitoring of MQTT t
    ```
 
 ## Usage
+
 Start the development server:
-   ```sh
-   npm run dev
-   ```
+
+```sh
+npm run dev
+```
 
 ## Contributing
+
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-This README should be brief yet informative enough to get users started quickly. Feel free to adjust the `<repository_url>` placeholder and any other details specific to your project.
