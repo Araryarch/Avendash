@@ -106,9 +106,9 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
   }
 
   return (
-    <div className="box-border flex flex-col items-start justify-start h-full gap-5 pt-10 text-xl sensor-wrapper rounded-box text-secondary-content shadow-primary md:pt-4 xl:h-3/4 xl:pt-0">
+    <div className="sensor-wrapper box-border flex h-full flex-col items-start justify-start gap-5 rounded-box pt-10 text-xl text-secondary-content shadow-primary md:pt-4 xl:h-3/4 xl:pt-0">
       <div
-        className="flex flex-col w-full h-full gap-5 sensor-text md:flex-row"
+        className="sensor-text flex h-full w-full flex-col gap-5 md:flex-row"
         ref={indicatorTopRef}
       >
         <Stat addClass={`${themeHtL(sensor1)}`}>
@@ -119,7 +119,7 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
         </Stat>
       </div>
       <div
-        className="flex flex-col w-full h-full gap-5 sensor-text md:flex-row"
+        className="sensor-text flex h-full w-full flex-col gap-5 md:flex-row"
         ref={indicatorBottomRef}
       >
         <Stat addClass={`${themeLtH(sensor3)}`}>
@@ -132,32 +132,32 @@ const StatSensor = ({ sensor1, sensor2, sensor3, sensor4 }: SensorProps) => {
 
       <div
         ref={sensorRef}
-        className="box-border flex-1 w-full px-10 py-8 shadow-sm sensor-chat bg-based-100 rounded-box shadow-primary"
+        className="sensor-chat bg-based-100 box-border w-full flex-1 rounded-box px-10 py-8 shadow-sm shadow-primary"
       >
-        <div className="flex justify-center w-full gap-5 py-3 controller-wrapper md:flex-col">
-          <Relay todo={'0'} textButton="Turn On Relay" />
-          <Relay todo={'1'} textButton="Turn Off Relay" />
+        <div className="controller-wrapper flex w-full justify-center gap-5 py-3 md:flex-col">
+          <Relay todo={'1'} textButton="Turn On Relay" />
+          <Relay todo={'0'} textButton="Turn Off Relay" />
         </div>
-        <h1 className="py-3 text-xl font-bold text-center">
+        <h1 className="py-3 text-center text-xl font-bold">
           IoT Control Panel
         </h1>
         <input
           type="text"
           placeholder="Type topic here"
-          className="w-full font-semibold input input-bordered input-primary text-primary"
+          className="input input-bordered input-primary w-full font-semibold text-primary"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
         />
         <input
           type="text"
           placeholder="Type message here"
-          className="w-full my-5 font-semibold input input-bordered input-primary text-primary"
+          className="input input-bordered input-primary my-5 w-full font-semibold text-primary"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <button
           type="submit"
-          className="w-full btn btn-primary"
+          className="btn btn-primary w-full"
           onClick={sendData}
         >
           Send Message
